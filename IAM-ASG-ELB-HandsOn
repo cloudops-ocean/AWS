@@ -1,0 +1,32 @@
+Problem 1) IAM
+  The goal of this exercise is to demonstrate the practical implementation of AWS Identity and Access Management (IAM) features, including user and group management, policy creation, and the use of roles and permissions to enforce access controls. This scenario involves setting up IAM users and groups, creating and attaching policies to manage access, and verifying permissions through hands-on tasks. All the task needs to be performed in us-east-1 region. Tasks: 
+    1. Create 3 IAM users named ‘Dev’, ‘Ops’, ‘Prod’ and create a usergroup named ‘capstone’ and add these users to this group. 
+    2. Create 2 different policies and attach to usergroup: 
+        ▪ ‘Policy 1’ – Users should be able to create access keys but for users in their group only. 
+        ▪ ‘Policy 2’ – Launch EC2 permission and connect permission. 
+    3. Create an inline policy for Dev user having the permission to list the buckets in S3 service. 
+    4. Create an inline policy for Ops user having the permission to upload data in any existing bucket in S3 service. 
+    5. Create an IAM role for Prod user having the privilege to access S3 service completely, then switch to the role and show the access of S3 service by creating a bucket name= ‘your_name-prod’ and upload data in it. 
+    6. Login from Dev user and create an access key for user ‘Dev’ and user ‘Ops’. 
+    7. Login from Dev user showing user can list all the buckets and getting error while uploading data in bucket created in previous task. 
+    8. Login from Ops user showing user can upload data in the bucket created in the previous task. 
+    9. Login from Prod user and launch an Ubuntu EC2 instance, ‘name=PRT’ and connect to it. 
+
+===================================================================
+Problem 2) ASG & ELB
+  AWS Autoscaling Group (ASG) Setup 
+    o	Launch an Nginx Web Server over Ubuntu Instance. 
+    o	Using the Ubuntu Instance created, now create an Autoscaling Group (ASG). 
+    o	While creating ASG, make sure to create a load balancer and attach it to the ASG so that the newly deployed instances are automatically registered in the load balancer target group. 
+    o	Also, make sure to give a solution so that you can upload files from any of these instances to S3 privately. 
+  ASG Features: 
+    o	Minimum Instances: 1 
+    o	Desired Instances: 1 
+    o	Maximum Instances: 10 
+    o	None of the launched instances should have a public IP. 
+  Scaling Policy Properties: 
+    o	If CPU Utilization >= 50, add 1 instance. 
+    o	If CPU Utilization >= 70, add 2 instances. 
+    o	If CPU Utilization >= 90, add 3 instances. 
+    o	If CPU Utilization >= 95, add 5 instances. 
+
